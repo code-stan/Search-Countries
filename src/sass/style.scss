@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import '../sass/variables';
+
+
+*,
+*::before,
+*::after{
+    font-family: "Nunito Sans", sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
+html{
+    font-size: 62.5%;
+
+}
+body{
+    background-color: $Very-Light-Gray;
+    color: $Very-Dark-Blue;
+    font-size: $fs-400;
+    
+    margin: 0 auto;
+}
+
+
+/* =========================
+    |GENERAL STYLINGS|
+========================= */
+
+a{
+    text-decoration: none;
+    color: initial;
+}
+li{
+    list-style: none;
+}
+.section{
+    padding-inline: 5%;
+}
+button{
+    cursor: pointer;
+    border: none;
+}
+img{
+    max-width: 100%;
+    display: block;
+}
