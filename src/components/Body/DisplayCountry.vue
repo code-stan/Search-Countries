@@ -1,23 +1,16 @@
 <script setup>
-     import { onMounted, ref } from 'vue';
-     import axios from 'axios';
-
      import CountryCard from './CountryCard.vue';
-
-     const dataRef = ref("");
-     onMounted(()=>{
-          axios.get("data.json")
-          .then((response)=> {
-               dataRef.value = response.data
-          }
-          )
-          .catch((err)=> console.log(err));
+     const props = defineProps({
+          regionSelected: String,
+          searchResults: Object,
+          dataRef: Array,
      })
+    
 </script>
           
 <template>
      <section class="countries">
-          <CountryCard v-for="countryDets in dataRef" :key="countryDets" :name="countryDets.name" :population="countryDets.population" :capital="countryDets.capital" :region="countryDets.region" :flags="countryDets.flags"/>
+          <CountryCard v-for="countryDets in props.dataRef" :key="countryDets" :name="countryDets.name" :population="countryDets.population" :capital="Array.isArray(countryDets.capital) ? countryDets.capital[0] : countryDets.capital" :region="countryDets.region" :flags="countryDets.flags"/>
      </section>
 </template>
 
@@ -25,10 +18,10 @@
      @import '../../sass/variables';
      .countries{
           margin-inline: $Parent-element-spacing;
-          display: flex;
-          flex-wrap: wrap;
-          column-gap: 1rem;
-          row-gap: 4rem;
-          gap: calc((100vw - ((23rem * 4) + 10%)) / 3.5);
+          margin-bottom: 5rem;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          
+          gap: 6rem;
      }
 </style>

@@ -1,15 +1,29 @@
 <script setup>
-     import { ref } from "vue";
+     import { defineEmits, ref, watch } from "vue";
+     const emit = defineEmits(['querySearch']);
+     
+     // REFS
+     const regions = ref(["All", "Americas", "Asia", "Europe", "Oceania"])
+     const searchInput = ref("");
+
+     // PROPS
      const props = defineProps({
-          regionSelected: String
+          regionSelected: String,
      })
-     const { regionSelected } = props;
-     const searchPrompt = ref("")
-     const regions = ref(["All", "America", "Asia", "Europe", "Oceania"])
-     const regionItem = ref("")
 
+     // Debounce function
+     const debounce = (func, timeout = 400)=>{
+          let timer;
+          return (...args) => {
+               clearTimeout(timer);
+               timer = setTimeout(() => { func.apply(this, args); }, timeout);
+          };
+     }
 
-   
+     // Watch for changes in the search query
+     watch(searchInput, () => {
+          debounce(emit('querySearch', searchInput.value.toLowerCase()))
+     });
 </script>
 <template>
      <header class="header">
@@ -21,12 +35,12 @@
           </nav>
           <div class="query-container">
                <div class="search-container">
-                    <input type="search" placeholder="Search for a country..." :value="searchPrompt.value">
+                    <input type="search" placeholder="Search for a country..." v-model="searchInput">
                </div>
                <div class="filter-container">
-                    <button class="filtered-country">{{ regionSelected }}</button>
+                    <button class="filtered-country">{{ props.regionSelected }}</button>
                     <ul class="other-options-list">
-                         <li v-for="region in regions" @click="$emit('toggleRegions', region)" ref="regionItem">{{ region }}</li>
+                         <li v-for="region in regions" @click="$emit('toggleRegions', region)" >{{ region }}</li>
                     </ul>
                </div>
           </div>
@@ -76,6 +90,7 @@
      .filter-container{
           position: relative;
           font-weight: 500;
+          width: 18rem;
 
           &:hover .other-options-list{
                clip-path: polygon(0 0%, 100% 0%, 100% 100%, 0% 100% );
@@ -84,7 +99,7 @@
           button{
                @extend input;
                padding: 1.5rem 2rem;
-               width: fit-content !important;
+               width: 100% !important;
           }
           .other-options-list{
                padding: 1.5rem 2rem;

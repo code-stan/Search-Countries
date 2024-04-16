@@ -1,6 +1,8 @@
 <script setup>
      const props = defineProps({
-          name: String,
+          name: {
+               common: String
+          },
           population: Number,
           region: String,
           capital: String,
@@ -8,17 +10,17 @@
                svg: String
           }
      })
-     const { name, population, region, capital, flags: { svg: svg} } = props
+     const { name: {common: common}, population, region, capital, flags: { svg: svg} } = props;
 </script>
 
 <template>
      <div class="country-card">
           <div class="first-part">
-               <img :src="svg" :alt="name" class="flag" width="230" height="150" loading="lazy">
+               <img :src="svg" :alt="`flag of ${name}`" class="flag" width="230" height="150" loading="lazy">
           </div>
           <div class="second-part">
                <div class="title">
-                    <h2 class="country-name">{{ name }}</h2>
+                    <h2 class="country-name">{{ common }}</h2>
                </div>
                <ul class="other-info">
                     <li>
@@ -39,8 +41,8 @@
 <style lang="scss" scoped>
      @import '../../sass/variables';
      .country-card{
+          align-self: flex-start;
           border-radius: .5rem;
-          width: 23rem;
           background-color: $White;
           overflow: hidden;
           box-shadow: 0 0 .5rem .5rem rgba($color: #000000, $alpha: 0.025);
