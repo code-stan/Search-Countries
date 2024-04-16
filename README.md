@@ -33,7 +33,7 @@ Users should be able to:
 ### Built with
 
 - [Vue3](https://vuejs.org/)
-- CSS custom properties
+- SCSS
 - Desktop-first workflow
 
 ### Continued development
