@@ -23,6 +23,7 @@
 	onMounted(() => {
 		axios
 			.get("https://restcountries.com/v3.1/all")
+			// .get("/data.json")
 			.then((response) => {
 				dataRef.value = response.data;
 				arr.value = response.data;

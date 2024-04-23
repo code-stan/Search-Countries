@@ -14,7 +14,7 @@
 </script>
 
 <template>
-     <div class="country-card">
+     <RouterLink :to="`/countries/${common}`" class="country-card">
           <div class="first-part">
                <img :src="svg" :alt="`flag of ${name}`" class="flag" width="230" height="150" loading="lazy">
           </div>
@@ -34,12 +34,12 @@
                     </li>
                </ul>
           </div>
-     </div>
+     </RouterLink>
 </template>
 
 
 <style lang="scss" scoped>
-     @import '../../sass/variables';
+     @import '../../../sass/variables';
      .country-card{
           align-self: flex-start;
           border-radius: .5rem;

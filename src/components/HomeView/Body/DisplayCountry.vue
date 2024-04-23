@@ -15,7 +15,7 @@
 </template>
 
 <style lang="scss" scoped>
-     @import '../../sass/variables';
+     @import '../../../sass/variables';
      .countries{
           margin-inline: $Parent-element-spacing;
           margin-bottom: 5rem;
