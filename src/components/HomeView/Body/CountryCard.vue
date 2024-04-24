@@ -43,7 +43,7 @@
      .country-card{
           align-self: flex-start;
           border-radius: .5rem;
-          background-color: $White;
+          background-color: var(--White);
           overflow: hidden;
           box-shadow: 0 0 .5rem .5rem rgba($color: #000000, $alpha: 0.025);
 

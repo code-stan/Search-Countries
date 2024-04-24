@@ -9,6 +9,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    color: var(--Very-Dark-Blue-2);
 }
 
 
@@ -17,14 +18,19 @@ html{
 
 }
 body{
-    background-color: $Very-Light-Gray;
-    color: $Very-Dark-Blue;
+    background-color: var(--Very-Light-Gray);
     font-size: $fs-400;
     max-width: 160rem;
     margin: 0 auto;
+
+    &.active{
+        // --White: var(--Very-Dark-Blue-2);
+        --Very-Light-Gray: var(--Very-Dark-Blue);
+        --Dark-Gray: var(--White);
+        --Very-Dark-Blue-2: hsl(0, 0%, 100%);
+        --White: var(--Dark-Blue);
+    }
 }
-
-
 /* =========================
     |GENERAL STYLINGS|
 ========================= */
