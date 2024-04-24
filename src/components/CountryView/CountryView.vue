@@ -3,8 +3,8 @@
      import { onMounted, ref, watch } from "vue";
      import { useRoute } from "vue-router"
      const countryData = ref({})
-     const firstHalfData = ref({});
-     const secondHalfData = ref({});
+     const firstHalfData = ref(null);
+     const secondHalfData = ref(null);
      const imgArr = ref({})
      const {params} = useRoute();
      const {name} = params;
@@ -84,6 +84,7 @@
                return arr
           }
      }
+     console.log(typeof firstHalfData)
 </script>
 
 <template>
@@ -94,7 +95,7 @@
                     <img :src="imgArr.svg" :alt="imgArr.alt">
                </div>
                <div class="col r-col">
-                    <h1>{{ name }}</h1>
+                    <h1>{{ firstHalfData && name }}</h1>
                     <ul class="prop-list">
                          <div class="first-pl-section">
                               <li class="prop-item" v-for="(item, key) in firstHalfData">
@@ -124,7 +125,15 @@
 
 
      .country-view{
+          margin-bottom: 5rem;
           padding-inline: $Parent-element-spacing;
+     }
+     .country-view button{
+          margin-block: 7rem;
+          padding: .7rem 1.5rem;
+          background-color: var(--White);
+          border-radius: .4rem;
+          box-shadow: 0 0 .4rem .25rem rgba($color: #000000, $alpha: 0.09);
      }
      h1{
           font-size: clamp(2rem, 4vw, 4rem);

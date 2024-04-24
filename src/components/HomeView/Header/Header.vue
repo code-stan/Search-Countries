@@ -56,7 +56,7 @@
           padding: 4rem $Parent-element-spacing;
 
           input{
-               background-color: $White;
+               background-color: var(--White);
                border: none;
                width: 35rem;
                padding: 1.5rem 3rem;
@@ -82,7 +82,7 @@
                padding: 1.5rem 2rem;
                border-radius: .4rem;
                width: 100%;
-               background-color: $White;
+               background-color: var(--White);
                display: flex;
                flex-direction: column;
                gap: 1rem;
