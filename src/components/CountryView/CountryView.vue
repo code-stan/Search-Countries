@@ -136,26 +136,58 @@
           box-shadow: 0 0 .4rem .25rem rgba($color: #000000, $alpha: 0.09);
      }
      h1{
-          font-size: clamp(2rem, 4vw, 4rem);
+          font-size: clamp(2.6rem, 4vw, 4rem);
           font-weight: 700;
           margin-bottom: 3rem;
      }
-     .col img{
-          max-width: 50rem;
+     h2{
+          font-size: clamp(1.4rem, 3vw, 1.6rem);
+     }
+     .l-col{
+          max-width: min(60%, 50rem);
+          flex-basis: 40%;
+
      }
      .country-details{
-          @include flex(center, unset, 20rem);
+          @include flex(center, unset, clamp(8rem, 6vw, 20rem));
+     }
+     .r-col{
+          flex-basis: 60%;
      }
      .prop-list{
-          @include flex(start, unset, clamp(2rem, 4vw, 8rem));
+          @include flex(start, unset, clamp(6rem, 4vw, 8rem));
      }
-     .prop-item span {
-          & > *{
-               display: inline-block;
-          }
-          p{
-               padding-left: .5rem;
+     [class *= "-pl-section"]{
+          
+          display: flex;
+          flex-direction: column;
+          gap: 1.8rem;
+     }
+     .prop-item{
+          span {
+               & > *{
+                    display: inline-block;
+               }
+               p{
+                    padding-left: .5rem;
+               }
           }
      }
+     
 
+     @media screen and (max-width: 768px){
+          .country-details{
+               gap: 6rem;
+               flex-direction: column;
+          }
+          .l-col, .r-col{
+               flex-basis: 50%;
+          }
+          .country-details, .prop-list{
+               align-items: start;
+          }
+          .prop-list{
+               flex-wrap: wrap;
+          }
+     }
 </style>
