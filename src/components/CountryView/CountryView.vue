@@ -144,7 +144,7 @@
           max-width: 50rem;
      }
      .country-details{
-          @include flex(center, space-between);
+          @include flex(center, unset, 20rem);
      }
      .prop-list{
           @include flex(start, unset, clamp(2rem, 4vw, 8rem));
