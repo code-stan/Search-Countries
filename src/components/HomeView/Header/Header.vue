@@ -44,13 +44,8 @@
 
 <style scoped lang="scss"> 
      @import '../../../sass/variables';
+     @import "../../../sass/shared";
 
-     @mixin flex($align, $justify){
-          display: flex;
-          align-items: $align;
-          justify-content: $justify;
-          gap: 4rem;
-     }
      .query-container{
           @include flex(start, space-between);
           padding: 4rem $Parent-element-spacing;
@@ -96,6 +91,17 @@
 
                li{
                     cursor: pointer;
+               }
+          }
+     }
+    @media screen and (max-width: 600px){
+          .query-container{
+               justify-content: start;
+               flex-direction: column;
+               width: 100%;
+               
+               &, input, .search-container{
+                    width: 100%;
                }
           }
     }

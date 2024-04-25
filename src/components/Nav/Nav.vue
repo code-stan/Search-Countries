@@ -1,12 +1,12 @@
 <script setup>
-     import { onBeforeMount, ref } from 'vue';
+     import { ref } from 'vue';
      const prop = defineProps({
           currentTheme: String
      })
 
      const themeName = ref("");
      themeName.value = prop.currentTheme;
-     
+
      function toggleTheme(){
           const body = document.body;
           body.classList.toggle("active")

@@ -23,5 +23,19 @@
           grid-template-columns: repeat(4, 1fr);
           
           gap: 6rem;
+          
+          @media screen and (min-width: 850px) and (max-width: 1175px) {
+               grid-template-columns: repeat(3, 1fr);
+               
+          }
+          @media screen and (min-width: 600px) and (max-width: 850px) {
+               grid-template-columns: repeat(2, 1fr);
+               
+          }
+          @media screen and (max-width: 600px) {
+               margin-inline: 6rem;
+               grid-template-columns: 1fr;
+               
+          }
      }
 </style>
