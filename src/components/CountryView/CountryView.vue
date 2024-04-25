@@ -145,17 +145,17 @@
      }
      .l-col{
           max-width: min(60%, 50rem);
-          flex-basis: 40%;
+          flex-basis: 45%;
 
      }
      .country-details{
-          @include flex(center, unset, clamp(8rem, 6vw, 20rem));
+          @include flex(center, unset, clamp(8rem, 8vw, 20rem));
      }
      .r-col{
-          flex-basis: 60%;
+          flex-basis: 55%;
      }
      .prop-list{
-          @include flex(start, unset, clamp(6rem, 4vw, 8rem));
+          @include flex(start, unset, clamp(6rem, 2vw, 8rem));
      }
      [class *= "-pl-section"]{
           
